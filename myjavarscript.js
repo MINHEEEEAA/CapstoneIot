@@ -34,21 +34,62 @@ database.ref("/project/pow").on("value", function(snapshot){
     var temp1 = snapshot.val();
     document.getElementById("p1").innerHTML = temp1;
 });
+//------------------------------------------------------------------------getbutton
 
+database.ref("/project/relay1").on("value", function(snapshot){
+    var bt1 = snapshot.val();
+    if(bt1 == "1"){
+        document.getElementById("denId_01").src = "./img/light_bulb.png"
+    }
+    else{
+        document.getElementById("denId_01").src = "./img/ledoff.png"
+    }
+});
+
+database.ref("/project/relay2").on("value", function(snapshot){
+    var bt2 = snapshot.val();
+    if(bt2 == "1"){
+        document.getElementById("denId_02").src = "./img/light_bulb.png"
+    }
+    else{
+        document.getElementById("denId_02").src = "./img/ledoff.png"
+    }
+});
+
+database.ref("/project/relay3").on("value", function(snapshot){
+    var bt3 = snapshot.val();
+    if(bt3 == "1"){
+        document.getElementById("denId_03").src = "./img/light_bulb.png"
+    }
+    else{
+        document.getElementById("denId_03").src = "./img/ledoff.png"
+    }
+});
+
+database.ref("/project/relay4").on("value", function(snapshot){
+    var bt4 = snapshot.val();
+    if(bt4 == "1"){
+        document.getElementById("denId_04").src = "./img/light_bulb.png"
+    }
+    else{
+        document.getElementById("denId_04").src = "./img/ledoff.png"
+    }
+});
+//------------------------------------------------------------------------
 var btnOn = document.getElementById("btnOnId_01");
 var btnOff = document.getElementById("btnOffId_01");
 btnOn.onclick = function(){
     document.getElementById("denId_01").src = "./img/light_bulb.png"
 
     firebase.database().ref("/project").update({
-        "relay1" : 1
+        "relay1" : "1"
     });
 }
 
 btnOff.onclick = function(){
     document.getElementById("denId_01").src = "./img/ledoff.png"
     firebase.database().ref("/project").update({
-        "relay1" : 0
+        "relay1" : "0"
     });
 }
 
@@ -58,7 +99,7 @@ btnOn.onclick = function(){
     document.getElementById("denId_02").src = "./img/light_bulb.png"
 
     firebase.database().ref("/project").update({
-        "relay2" : 1
+        "relay2" : "1"
     });
 }
 
@@ -66,7 +107,7 @@ btnOff.onclick = function(){
     document.getElementById("denId_02").src = "./img/ledoff.png"
 
     firebase.database().ref("/project").update({
-        "relay2" : 0
+        "relay2" : "0"
     });
 }
 
@@ -76,7 +117,7 @@ btnOn.onclick = function(){
     document.getElementById("denId_03").src = "./img/light_bulb.png"
 
     firebase.database().ref("/project").update({
-        "relay3" : 1
+        "relay3" : "1"
     });
 }
 
@@ -84,7 +125,7 @@ btnOff.onclick = function(){
     document.getElementById("denId_03").src = "./img/ledoff.png"
 
     firebase.database().ref("/project").update({
-        "relay3" : 0
+        "relay3" : "0"
     });
 }
 
@@ -94,7 +135,7 @@ btnOn.onclick = function(){
     document.getElementById("denId_04").src = "./img/light_bulb.png"
 
     firebase.database().ref("/project").update({
-        "relay4" : 1
+        "relay4" : "1"
     });
 }
 
@@ -102,7 +143,7 @@ btnOff.onclick = function(){
     document.getElementById("denId_04").src = "./img/ledoff.png"
 
     firebase.database().ref("/project").update({
-        "relay4" : 0
+        "relay4" : "0"
     });
 }
 
